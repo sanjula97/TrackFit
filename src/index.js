@@ -4,11 +4,14 @@ import connectDB from './config/db'
 
 const app = express();
 
+//Import Routes
+import authRoute from './routes/auth'
+
 //connect to mongoDB
 connectDB();
 
-//Import Routes
-import authRoute from './routes/auth'
+//MIddleware
+app.use(express.json());
 
 //Routes middleware
 app.use('/api/user',authRoute);

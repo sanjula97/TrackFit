@@ -1,10 +1,12 @@
 import { connect } from 'mongoose'
+import dotenv from 'dotenv'
 
-const mongoURL = "mongodb+srv://sanju:sanjula@cluster0-d7xsu.mongodb.net/test?retryWrites=true&w=majority";
+dotenv.config();
+
 
 const connectDB = async () => {
     try {
-        await connect(mongoURL , {
+        await connect(process.env.DB_CONNECT, {
              useNewUrlParser: true,
              useUnifiedTopology: true 
             });
