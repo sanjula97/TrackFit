@@ -22,7 +22,11 @@ const userSchema = new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now
-    }
+    },
+    channels: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'team'
+    }],
 });
 
 export default mongoose.model('User', userSchema)
